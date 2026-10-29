@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Cremosa</title>
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <!-- Logo o nome del sito -->
+        <div class="logo">
+          <a href="index.html"><img src="doc/logo.jpeg" alt="La Cremosa" /></a>
+        </div>
+
+        <span id="nome">La Cremosa</span>
+
+        <!-- Checkbox nascosto per gestire lo stato del menu -->
+        <input type="checkbox" id="menu-toggle" />
+
+        <!-- Icona del menu hamburger (collegata al checkbox tramite l'attributo 'for') -->
+        <label for="menu-toggle" class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </label>
+
+        <!-- Lista dei link del menu -->
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#chi-siamo">Chi Siamo</a></li>
+          <li><a href="menu.html">Menù</a></li>
+          <li><a href="prenota.html">Prenota</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <!-- Slider orizzontale automatico di 4 immagini -->
+        <div class="horizontal-slider">
+          <div class="slide-track">
+            <!-- 4 Foto a tutto schermo -->
+            <div class="slide">
+              <img src="doc/classica-cremosa.png" alt="Foto 1" />
+            </div>
+            <div class="slide">
+              <img src="doc/diavola-ingrassata.png" alt="Foto 2" />
+            </div>
+            <div class="slide">
+              <img src="doc/gialla-del-nonno.png" alt="Foto 3" />
+            </div>
+            <div class="slide">
+              <img src="doc/ligure-revisitata.png" alt="Foto 4" />
+            </div>
+
+            <!-- Duplicate per creare un effetto di loop continuo e fluido -->
+            <div class="slide">
+              <img src="doc/classica-cremosa.png" alt="Foto 1" />
+            </div>
+            <div class="slide">
+              <img src="doc/diavola-ingrassata.png" alt="Foto 2" />
+            </div>
+            <div class="slide">
+              <img src="doc/gialla-del-nonno.png" alt="Foto 3" />
+            </div>
+            <div class="slide">
+              <img src="doc/ligure-revisitata.png" alt="Foto 4" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenitore bottoni posizionato in basso al centro -->
+        <div class="hero-buttons">
+          <a href="prenota.html" class="btn btn-primary">Prenota</a>
+          <a href="menu.html" class="btn btn-secondary">Menù</a>
+        </div>
+      </section>
+      <!-- Nuova sezione sotto la hero -->
+      <section class="content-section">
+        <div class="content-container">
+          <div class="content-block">
+            <h2 id="chi-siamo">CHI SIAMO</h2>
+            <p>
+              La passione per la pizza, l'amore per la maionese. <br />
+              Dal 1984, La Cremosa unisce la tradizione della pizza fatta in
+              casa a un’idea audace: completare ogni singola pizza con la nostra
+              maionese artigianale. <br />
+              La nostra non vuole essere una pizza gourmet pretenziosa, ma una
+              pizza genuina resa unica e indimenticabile dal nostro ingrediente
+              segreto.
+            </p>
+          </div>
+
+          <div class="content-block">
+            <h2 id="come-lavoriamo">COME LAVORIAMO</h2>
+            <p>
+              <strong>Impasto</strong> a lunga lievitazione, ingredienti
+              semplici e cottura a legna per una pizza leggera e digeribile.
+              <br />
+              <strong>Maionese</strong> montata fresca ogni mattina nel nostro
+              laboratorio con uova fresche, olio EVO e un tocco di limone.
+              <br /><br />
+              Infine aggiungiamo la maionese rigorosamente a crudo all'uscita
+              dal forno, per <strong>un'esplosione di cremosità</strong> a ogni
+              morso.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <span>Dove trovarci: </span
+      ><span>Via della Maionese, 1984 - Borgo Gustoso</span><br />
+      <span>Come contattarci: </span
+      ><a class="contatti" href="tel:+39 0123 456789">+39 0123 456789</a><br />
+      <span>Come contattarci: </span
+      ><span
+        ><a class="contatti" href="mailto:assistenzapersonale@lacremosa.it"
+          >assistenzapersonale@lacremosa.it</a
+        ></span
+      >
+    </footer>
+
+    <script>
+  // Seleziona tutti i link del menu e chiude il menu al click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('menu-toggle').checked = false;
+    });
+  });
+</script>
+  </body>
+</html>

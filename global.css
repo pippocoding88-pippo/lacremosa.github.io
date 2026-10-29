@@ -1,0 +1,610 @@
+/* Stili di base e Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Attiva lo scorrimento morbido per tutta la pagina */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 65px; /* Compensa l'altezza dell'header fisso per non coprire il titolo */
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+/* HEADER */
+
+/* Navbar per schermi grandi */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px 20px;
+  color: white;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 11;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border: solid #ff9800 2px;
+  border-radius: 50%;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#nome {
+  font-size: 2rem;
+}
+
+/* Nasconde il checkbox di controllo */
+#menu-toggle {
+  display: none;
+}
+
+/* Nasconde l'icona hamburger su schermi grandi */
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Stile dei link su desktop */
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+/* Assicura che il label prenda tutto lo spazio del link mantenendo lo stile */
+.nav-links label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  padding-left: 20px;
+}
+
+.nav-links a:hover {
+  color: #ff9800;
+}
+
+/* MAIN */
+
+/* --- HERO SECTION (CORRETTA PER MOBILE) --- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  /* Usa dvh al posto di vh */
+  height: calc(100dvh - 125px); 
+  margin-top: 65px; 
+  margin-bottom: 60px;
+  overflow: hidden;
+}
+
+/* --- SLIDER ORIZZONTALE AUTOMATICO --- */
+.horizontal-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-track {
+  display: flex;
+  /* 8 slide in totale (4 originali + 4 duplicate): larghezza totale 800% */
+  width: 800%;
+  height: 100%;
+  /* Animazione continua (20s regola la velocità complessiva) */
+  animation: scrollAuto 20s ease-in-out infinite;
+}
+
+.slide {
+  /* Ogni singola foto occupa esattamente il 100% della Hero Section */
+  width: 100vw;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene le proporzioni coprendo tutto lo spazio disponibile */
+}
+
+/* --- ANIMAZIONE SCORRIMENTO A SCATTI FLUIDI ---
+   Ogni immagine rimane ferma per un momento e poi scivola a quella successiva. */
+@keyframes scrollAuto {
+  0%,
+  20% {
+    transform: translateX(0%);
+  }
+  25%,
+  45% {
+    transform: translateX(-100vw);
+  }
+  50%,
+  70% {
+    transform: translateX(-200vw);
+  }
+  75%,
+  95% {
+    transform: translateX(-300vw);
+  }
+  100% {
+    transform: translateX(-400vw);
+  }
+}
+
+/* Posizionamento Bottoni */
+.hero-buttons {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  width: 90%; /* Evita che vadano a capo male su schermi stretti */
+  justify-content: center;
+}
+
+/* Stile dei Bottoni */
+.btn {
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border: solid #ff9800 3px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary {
+  background-color: #333;
+  color: #ff9800;
+}
+
+.btn-primary:hover {
+  background-color: #474747;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #474747;
+  transform: translateY(-2px);
+}
+
+/* Content Section */
+
+.content-section {
+  width: 100%;
+  height: calc(100vh); /* Stesso spazio della hero section */
+  background-color: #ffffff; /* Sfondo bianco */
+  display: flex;
+  align-items: center; /* Centra verticalmente il contenuto */
+  justify-content: center; /* Centra orizzontalmente il contenuto */
+}
+
+/* Container interno per gestire la disposizione dei blocchi di testo */
+.content-container {
+  max-width: 800px; /* Impedisce al testo di allargarsi troppo su schermi grandi */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px; /* Spazio tra il primo blocco (h2+p) e il secondo (h2+p) */
+}
+
+/* Stili per i testi */
+.content-block h2 {
+  font-size: 1.8rem;
+  color: #ff9800; /* Colore arancione/giallo richiesto */
+  margin-bottom: 10px; /* Spazio tra h2 e p */
+}
+
+.content-block p {
+  font-size: 0.8rem;
+  color: #333333; /* Colore scuro per il paragrafo */
+  line-height: 1.6; /* Migliora la leggibilità del testo */
+}
+
+/* MAIN Menu */
+
+/* --- STILI PER LA PAGINA MENU --- */
+/* --- PAGINA MENU (CORRETTA PER MOBILE) --- */
+.menu-main {
+  width: 100%;
+  height: calc(100dvh - 125px); /* Usa dvh per un calcolo preciso */
+  margin-top: 65px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-sizing: border-box;
+  overflow-y: auto; /* Permette uno scroll morbido interno se le due sezioni superano l'altezza */
+}
+
+.menu-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-section h2 {
+  color: #ff9800;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Wrapper per posizionare le frecce ai lati dello slider */
+.slider-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 400px; /* Dimensione ideale per la singola card */
+  display: flex;
+  align-items: center;
+}
+
+/* Contenitore orizzontale delle Card con Scroll Snap */
+.cards-slider {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* Aggancia la card al centro quando si scorre */
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Nasconde la barra di scorrimento su Firefox */
+}
+
+/* Nasconde la barra di scorrimento su Chrome/Safari/Edge */
+.cards-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* La singola Card */
+.card {
+  flex: 0 0 100%; /* Ogni card occupa esattamente il 100% del contenitore */
+  scroll-snap-align: center; /* Si centra automaticamente */
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #000000;
+}
+
+/* Riduzione dimensioni immagini card per mobile per farlo stare perfettamente */
+.card img {
+  width: 100%;
+  height: 100px; /* Ridotto leggermente da 120px a 100px */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+.card h3 {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.card p {
+  color: #666;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+/* --- FRECCETTE AI LATI --- */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ff9800; /* Arancione/Giallo */
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.slider-arrow:hover {
+  background-color: #e68900;
+}
+
+.arrow-left {
+  left: -15px; /* Fuoriesce leggermente a sinistra della card */
+}
+
+.arrow-right {
+  right: -15px; /* Fuoriesce leggermente a destra della card */
+}
+
+/* MAIN Prenotazione */
+
+/* --- PAGINA PRENOTAZIONE (CENTRATURA PERFETTA) --- */
+.spostareinbasso {
+  position: relative;
+  top: 20dvh;
+  left: 50%;                  /* Sposta il bordo sinistro del div esattamente al centro della pagina */
+  transform: translateX(-50%); /* Riporta indietro il div della metà della sua larghezza, centrandolo perfettamente */
+  
+  width: 90%;                 /* Occupa quasi tutto lo schermo su mobile con margini di sicurezza */
+  max-width: 500px;           /* Impedisce al div di diventare troppo largo su desktop */
+  
+  box-sizing: border-box;     /* Assicura che padding e bordi non sballino la larghezza */
+}
+
+.booking-main {
+  position: relative;
+  width: 100%;
+  height: calc(100dvh - 125px); /* Usa dvh */
+  margin-top: 65px;
+  background-color: #ffffff;
+  
+  /* Centratura Flex perfetta senza bisogno di top: 20vh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 10px 15px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Se lo schermo è molto piccolo, permette di scorrere leggermente invece di tagliare il contenuto */
+}
+
+/* Container centrale del form */
+.booking-container {
+  width: 100%;
+  max-width: 600px; /* Larghezza massima controllata per il form */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+.booking-container h2 {
+  color: #ff9800;
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+
+/* Struttura del Form */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Righe con 2 input affiancati */
+.form-row {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Stile comune per input e textarea */
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.booking-form input:focus,
+.booking-form textarea:focus {
+  border-color: #ff9800; /* Evidenzia il campo attivo in giallo/arancione */
+  background-color: #fff;
+}
+
+.booking-form textarea {
+  resize: none; /* Impedisce di ridimensionare la textarea rovinando il layout */
+  height: 70px; /* Altezza compatta per rientrare nello schermo */
+}
+
+/* Bottone di invio */
+.btn-submit {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #e68900;
+}
+
+/* Immagine bassa e lunga in fondo al form */
+.booking-banner {
+  width: 100%;
+  height: 80px; /* Altezza ridotta per farla rimanere "bassa e lunga" */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Taglia l'immagine per riempire il banner senza deformarla */
+  display: block;
+}
+
+/* ===================================================
+   RESPONSIVE PER SCHEMI MOLTO STRETTI (Mobile piccoli)
+   =================================================== */
+@media (max-width: 480px) {
+  /* Su schermi molto stretti, i due input della riga si mettono uno sotto l'altro */
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* FOOTER */
+
+.footer {
+  background-color: #333;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px 15px;
+  color: white;
+  z-index: 2;
+}
+
+.footer span {
+  font-size: 0.8rem;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #ff9800;
+}
+
+/* ===================================================
+   MEDIA QUERY: Stili per Mobile (schermi sotto i 768px)
+   =================================================== */
+@media (max-width: 768px) {
+  /* Icona hamburger */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  /* Gestione della comparsa del menu con opacità e transform */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-links a:hover {
+    color: #ff9800;
+    font-size: 1.5rem;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #444;
+  }
+
+  /* --- LOGICA DI APERTURA DEL MENU (QUANDO CLICCHI) --- */
+  /* Stile di base delle barre con transizione attiva */
+  .hamburger .bar {
+    transition: all 0.3s ease; /* Gestisce la fluidità sia della rotazione che del colore */
+  }
+
+  /* Effetto hover con transizione fluida */
+  .hamburger:hover .bar {
+    background-color: #ff9800; /* Giallo/Arancione */
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* --- ANIMAZIONE DELL'HAMBURGER IN 'X' --- */
+  #menu-toggle:checked ~ .hamburger .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #menu-toggle:checked ~ .hamburger .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked ~ .hamburger .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* ===================================================
+   RESPONSIVE PER SCHEMI MOLTO STRETTI (Mobile piccoli)
+   =================================================== */
+@media (max-width: 480px) {
+  /* Su schermi molto stretti, i due input della riga si mettono uno sotto l'altro */
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Nasconde il banner della prenotazione solo su mobile */
+@media (max-width: 768px) {
+  .booking-banner {
+    display: none;
+  }
+}

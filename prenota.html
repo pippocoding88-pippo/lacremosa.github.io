@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Cremosa</title>
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <!-- Logo o nome del sito -->
+        <div class="logo">
+          <a href="index.html"
+            ><img src="doc/logo.jpeg" alt="La Cremosa"
+          /></a>
+        </div>
+
+        <span id="nome">La Cremosa</span>
+
+        <!-- Checkbox nascosto per gestire lo stato del menu -->
+        <input type="checkbox" id="menu-toggle" />
+
+        <!-- Icona del menu hamburger (collegata al checkbox tramite l'attributo 'for') -->
+        <label for="menu-toggle" class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </label>
+
+        <!-- Lista dei link del menu -->
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menù</a></li>
+          <li><a href="prenota.html">Prenota</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <div class="spostareinbasso">
+            <div class="booking-container">
+        <h2>Prenota un tavolo</h2>
+
+        <form class="booking-form">
+          <!-- Prima riga: Nome e Telefono -->
+          <div class="form-row">
+            <input type="text" placeholder="Nome e Cognome" required />
+            <input type="tel" placeholder="Numero di telefono" required />
+          </div>
+
+          <!-- Seconda riga: Data/Ora e N. Persone -->
+          <div class="form-row">
+            <input type="datetime-local" required />
+            <input
+              type="number"
+              placeholder="N. persone"
+              min="1"
+              max="20"
+              required
+            />
+          </div>
+
+          <!-- Textarea per richieste aggiuntive -->
+          <textarea
+            placeholder="eventuali richieste aggiuntive"
+            rows="3"
+          ></textarea>
+
+          <!-- Bottone di invio opzionale ma utile -->
+          <button type="submit" class="btn-submit">
+            Conferma Prenotazione
+          </button>
+        </form>
+
+        <!-- Immagine bassa e lunga -->
+        <div class="booking-banner">
+          <img
+            src="doc/fotina.jpg"
+            alt="Atmosfera Pizzeria"
+          />
+        </div>
+        </div>
+    </main>
+    <footer class="footer">
+      <span>Dove trovarci: </span
+      ><span>Via della Maionese, 1984 - Borgo Gustoso</span><br />
+      <span>Come contattarci: </span
+      ><a class="contatti" href="tel:+39 0123 456789">+39 0123 456789</a><br />
+      <span>Come contattarci: </span
+      ><span
+        ><a class="contatti" href="mailto:assistenzapersonale@lacremosa.it"
+          >assistenzapersonale@lacremosa.it</a
+        ></span
+      >
+    </footer>
+  </body>
+</html>

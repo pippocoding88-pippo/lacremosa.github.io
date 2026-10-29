@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Cremosa</title>
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <!-- Logo o nome del sito -->
+        <div class="logo">
+          <a href="index.html"
+            ><img src="doc/logo.jpeg" alt="La Cremosa"
+          /></a>
+        </div>
+
+        <span id="nome">La Cremosa</span>
+
+        <!-- Checkbox nascosto per gestire lo stato del menu -->
+        <input type="checkbox" id="menu-toggle" />
+
+        <!-- Icona del menu hamburger (collegata al checkbox tramite l'attributo 'for') -->
+        <label for="menu-toggle" class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </label>
+
+        <!-- Lista dei link del menu -->
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menù</a></li>
+          <li><a href="prenota.html">Prenota</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Main con altezza calcolata -->
+      <main class="menu-main">
+        <!-- SEZIONE PIZZE -->
+        <section class="menu-section">
+          <h2>Le Nostre Pizze</h2>
+
+          <div class="slider-wrapper">
+            <!-- Freccia Sinistra -->
+            <button
+              class="slider-arrow arrow-left"
+              onclick="scrollSlider('pizze-slider', -1)"
+            >
+              &#10094;
+            </button>
+
+            <!-- Slider Card Pizze -->
+            <div class="cards-slider" id="pizze-slider">
+              <div class="card">
+                <img
+                  src="doc/classica-cremosa-nt.jpg"
+                  alt="Margherita"
+                />
+                <h3>Classica Cremosa (8€)</h3>
+                <p>
+                  Pomodoro San Marzano DOP, mozzarella di bufala campana,
+                  basilico fresco, olio EVO e maionese artigianale della casa.
+                </p>
+              </div>
+              <div class="card">
+                <img
+                  src="doc/diavola-ingrassata-nt.jpg"
+                  alt="Diavola"
+                />
+                <h3>Diavola Ingrassata (9€)</h3>
+                <p>
+                  Pomodoro San Marzano DOP, fior di latte, salame piccante
+                  calabrese, olio al peperoncino e maionese artigianale.
+                </p>
+              </div>
+              <div class="card">
+                <img
+                  src="doc/gialla-del-nonno-nt.jpg"
+                  alt="4 Formaggi"
+                />
+                <h3>Gialla del Nonno (10€)</h3>
+                <p>
+                  Crema di pomodorino giallo, provola affumicata d'Agerola,
+                  guanciale croccante, pepe nero e maionese al pepe rosa.
+                </p>
+              </div>
+              <div class="card">
+                <img
+                  src="doc/ligure-revisitata-nt.jpg"
+                  alt="Vegetariana"
+                />
+                <h3>Ligure Revisitata (10€)</h3>
+                <p>
+                  Mozzarella fior di latte, pesto di basilico genovese DOP,
+                  pomodorini confit, pinoli tostati e maionese al limone.
+                </p>
+              </div>
+            </div>
+
+            <!-- Freccia Destra -->
+            <button
+              class="slider-arrow arrow-right"
+              onclick="scrollSlider('pizze-slider', 1)"
+            >
+              &#10095;
+            </button>
+          </div>
+        </section>
+
+        <!-- SEZIONE BIBITE -->
+        <section class="menu-section">
+          <h2>Le Nostre Bibite</h2>
+
+          <div class="slider-wrapper">
+            <!-- Freccia Sinistra -->
+            <button
+              class="slider-arrow arrow-left"
+              onclick="scrollSlider('bibite-slider', -1)"
+            >
+              &#10094;
+            </button>
+
+            <!-- Slider Card Bibite -->
+            <div class="cards-slider" id="bibite-slider">
+              <div class="card">
+                <img
+                  src="doc/acqua.jpg"
+                  alt="Acqua Naturale"
+                />
+                <h3>Acqua Minerale/Frizzante 0.5L (2€)</h3>
+                <p>
+                  Acqua oligominerale naturale o frizzante in bottiglia di
+                  vetro.
+                </p>
+              </div>
+              <div class="card">
+                <img
+                  src="doc/birra.jpg"
+                  alt="Coca Cola"
+                />
+                <h3>Birra Artigianale Bionda 0.5L (5€)</h3>
+                <p>Birra bionda non filtrata a bassa fermentazione.</p>
+              </div>
+              <div class="card">
+                <img
+                  src="doc/chinotto.jpg"
+                  alt="Birra Artigianale"
+                />
+                <h3>Chinotto Tradizionale 0.33L (3€)</h3>
+                <p>La classica bevanda italiana dal gusto vintage e digestivo.</p>
+              </div>
+              <div class="card">
+                <img
+                  src="doc/limonata.jpg"
+                  alt="Vino della Casa"
+                />
+                <h3>Limonata della Casa 0.5L (5€)</h3>
+                <p>
+                  Vino rosso locale della casa, ideale per accompagnare le
+                  pizze.
+                </p>
+              </div>
+            </div>
+
+            <!-- Freccia Destra -->
+            <button
+              class="slider-arrow arrow-right"
+              onclick="scrollSlider('bibite-slider', 1)"
+            >
+              &#10095;
+            </button>
+          </div>
+        </section>
+      </main>
+    </main>
+    <footer class="footer">
+      <span>Dove trovarci: </span
+      ><span>Via della Maionese, 1984 - Borgo Gustoso</span><br />
+      <span>Come contattarci: </span
+      ><a class="contatti" href="tel:+39 0123 456789">+39 0123 456789</a><br />
+      <span>Come contattarci: </span
+      ><span
+        ><a class="contatti" href="mailto:assistenzapersonale@lacremosa.it"
+          >assistenzapersonale@lacremosa.it</a
+        ></span
+      >
+    </footer>
+
+    <!-- Piccolo script per gestire il click sulle freccette -->
+    <script>
+      function scrollSlider(sliderId, direction) {
+        const slider = document.getElementById(sliderId);
+        const cardWidth = slider.querySelector(".card").clientWidth;
+        slider.scrollBy({
+          left: direction * cardWidth,
+          behavior: "smooth",
+        });
+      }
+
+      // Chiude il menu mobile al click sui link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("menu-toggle").checked = false;
+        });
+      });
+    </script>
+  </body>
+</html>
